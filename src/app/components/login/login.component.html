@@ -1,0 +1,5 @@
+<h1>Korobeiniki</h1>
+
+<div *ngIf="!(audio.finishedLoadingSounds$ | async)">Loading Game...</div>
+
+<button *ngIf="promptEvent !== null" (click)="install()">Install</button>

@@ -1,0 +1,10 @@
+<ng-container *ngFor="let row of fieldData; let y = index">
+    <app-block *ngFor="let block of row; let x = index"
+        [data]="block"></app-block>
+</ng-container>
+
+<ng-container *ngIf="this.tetromino">
+    <app-block *ngFor="let block of this.tetromino.blocks" [data]="block"></app-block>
+
+    <app-block *ngFor="let block of this.tetromino.ghostBlocks" [data]="block"></app-block>
+</ng-container>

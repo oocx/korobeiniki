@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    margin: 160px;
+}
+
+p {
+    font-family: 'Pixel Emulator';
+    color: white;
+    height: 1.6em;
+    margin: 0;
+    animation: autoscroll 60s infinite linear forwards;
+    position: relative;
+}
+
+@keyframes autoscroll {
+
+    from {
+        top: 930px;
+    }
+
+    to {
+        top: -3000px;
+    }
+}

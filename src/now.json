@@ -1,0 +1,31 @@
+{
+    "name": "tetrominos",
+    "alias": "oocx.now.sh",
+    "version": 2,
+    "routes": [
+        {
+            "src": "/login",
+            "dest": "/"
+        },
+        {
+            "src": "/menu",
+            "dest": "/"
+        },
+        {
+            "src": "/game",
+            "dest": "/"
+        },
+        {
+            "src": "/vs",
+            "dest": "/"
+        },
+        {
+            "src": "/highscore",
+            "dest": "/"
+        },
+        {
+            "src": "/credits",
+            "dest": "/"
+        }
+    ]
+}

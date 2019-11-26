@@ -1,0 +1,17 @@
+:host {
+    display: block;
+    position: relative;
+    border: 4px solid #808080;
+    background: #000020;
+    opacity: 1.0;
+    transition: opacity ease-in-out 0.5s;
+}
+
+:host.paused {
+    opacity: 0.2;
+}
+
+.ghost {
+    opacity: 0.6;
+    filter: blur(20px);
+}

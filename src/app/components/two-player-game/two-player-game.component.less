@@ -1,0 +1,54 @@
+:host {
+    margin: 40px 80px;
+    display: grid;
+    grid-template-columns: 1fr 420px 420px 1fr;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 40px;
+}
+
+.game2 {
+    grid-column: ~"2 / 3";
+}
+
+.game1 {
+    grid-column: ~"3 / 4";
+}
+
+.game1Status, .game2Status {
+    align-self: start;
+}
+
+.game2Status {
+    grid-column: ~"1 / 2";
+}
+
+.game1Status {
+    grid-column: ~"4 / 5";
+}
+
+
+
+.score, .level, .lines, .preview, .gamepads, .speed, .fps, .playerName {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+
+.preview {
+    margin-top: 120px;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+.preview > div {
+    background: #000020;
+    position: relative;
+    width: 160px;
+    height: 120px;
+    border: 4px solid #808080;
+    padding: 40px;
+    margin-top: 20px;
+}
+

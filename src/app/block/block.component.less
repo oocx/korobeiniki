@@ -1,0 +1,79 @@
+
+
+:host {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border-width: 4px;
+    border-style: outset;
+    background-color: transparent;
+    background-image: url('/assets/highlight.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-origin: border-box;
+}
+
+:host.empty {
+    border-color: #000030;
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+}
+
+:host.explode {
+    animation: 0.5s ease-in-out explode;
+}
+
+:host.cyan {
+    background-color: cyan;
+    border-color: #009999;
+}
+
+:host.blue {
+    background-color: blue;
+    border-color: #000099;
+}
+
+:host.orange {
+    background-color: orange;
+    border-color: #994400;
+}
+
+:host.yellow {
+    background-color: yellow;
+    border-color: #999900;
+}
+
+:host.green {
+    background-color: green;
+    border-color: darkgreen;
+}
+
+:host.magenta {
+    background-color: magenta;
+    border-color: #400040;
+}
+
+:host.red {
+    background-color: red;
+    border-color: #990000;
+}
+
+:host.lime {
+    background-color: lime;
+    border-color: green;
+}
+
+@keyframes explode {
+    0% { }
+    50% {
+        border-color: white; background-color: white;
+        box-shadow: 0 0 20px 4px #fff;
+    }
+    100% { background-color: transparent; border-color: transparent; }
+}

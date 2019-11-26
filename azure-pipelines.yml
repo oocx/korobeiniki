@@ -1,0 +1,76 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/node_modules
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    cp package-lock.json package-lock.original.json
+  displayName: 'create copy of package lock to use as cache key'
+  enabled: false
+
+- task: Cache@2
+  inputs:
+    key: 'npm | "$(Agent.OS)" | package-lock.original.json'
+    path: $(npm_config_cache)
+    cacheHitVar: CACHE_RESTORED
+  displayName: Cache node_modules
+  enabled: false
+
+- script: |
+    node install.js
+  displayName: 'npm install'
+  condition: ne(variables['CACHE_RESTORED'], 'true')
+
+- script: |
+    node_modules/.bin/semantic-release --debug
+  displayName: 'generate version and changelog'
+
+- script: |
+    npm run build
+  displayName: 'build'
+
+- script: |
+    npm run test:ci
+  displayName: 'run unit tests'
+  enabled: false
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TESTS-*.xml'
+  displayName: 'Publish Test Results'
+  enabled: false
+
+- task: PublishCodeCoverageResults@1
+  condition: succeededOrFailed()
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/korobeiniki/cobertura-coverage.xml'
+  displayName: 'Publish Code Coverage Results'
+  enabled: false
+
+- script: |
+    node_modules/.bin/now deploy --target production dist/korobeiniki --token $(NOW_TOKEN)
+  displayName: 'publish to zeit'
+
+
+- script: |
+    node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN)
+  displayName: 'publish to firebase'

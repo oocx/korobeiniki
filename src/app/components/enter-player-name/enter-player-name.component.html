@@ -1,0 +1,5 @@
+<label>Enter your name</label>
+
+<div class="name">
+    <span *ngFor="let char of chars; let index = index" [class.current]="index == cursorPos">{{char !== ' ' ? char : '&nbsp;'}}</span>
+</div>

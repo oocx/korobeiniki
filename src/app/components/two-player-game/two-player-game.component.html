@@ -1,0 +1,40 @@
+<div class="game2Status">
+    <div class="playerName">{{(events2.playerNameEntered$ | async)}}</div>
+    <div class="score">Score: {{(events2.score$ | async)?.score}}</div>
+    <div class="level">Level: {{(events2.score$ | async)?.level}}</div>
+    <div class="lines">Lines: {{(events2.score$ | async)?.lines}}</div>
+    <div class="speed">Speed: {{ (1000 / game2.stepTime * 100) | number:'1.0-0'}}% {{game2.timePerStep | number:'1.0-0'}} {{game2.gameSpeed| number:'1.2-2'}}</div>
+    <div class="fps">FPS: {{loop.fps$ | async}}</div>
+
+    <div class="preview">
+        Next:
+
+        <div *ngIf="game2.preview">
+            <app-block *ngFor="let block of game2.preview.blocks" [data]="block"></app-block>
+        </div>
+    </div>
+</div>
+
+<app-field *ngIf="game2.playerName" [class.paused]="gameIsPaused" [game]="game2" class="game2"></app-field>
+<app-enter-player-name *ngIf="!game2.playerName" [game]="game2" playerNumber="1"></app-enter-player-name>
+
+<app-field *ngIf="game1.playerName" [class.paused]="gameIsPaused" [game]="game1" class="game1"></app-field>
+<app-enter-player-name *ngIf="!game1.playerName" [game]="game1" playerNumber="0"></app-enter-player-name>
+
+
+<div class="game1Status">
+    <div class="playerName">{{(events1.playerNameEntered$ | async)}}</div>
+    <div class="score">Score: {{(events1.score$ | async)?.score}}</div>
+    <div class="level">Level: {{(events1.score$ | async)?.level}}</div>
+    <div class="lines">Lines: {{(events1.score$ | async)?.lines}}</div>
+    <div class="speed">Speed: {{ (1000 / game1.stepTime * 100) | number:'1.0-0'}}% {{game1.timePerStep | number:'1.0-0'}} {{game1.gameSpeed| number:'1.2-2'}}</div>
+    <div class="fps">FPS: {{loop.fps$ | async}}</div>
+
+    <div class="preview">
+        Next:
+
+        <div *ngIf="game1.preview">
+            <app-block *ngFor="let block of game1.preview.blocks" [data]="block"></app-block>
+        </div>
+    </div>
+</div>
