@@ -45,3 +45,4 @@ The test coverage is embarrassingly low though...
 ## Firebase configuration
 
 This game uses a google Firestore database to store high scores. You need to provide your own Firebase configuration to use the high score feature. See [webpack.partial.js](webpack.partial.js) for a list of environment variables that are used to configure Firebase.
+
