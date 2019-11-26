@@ -2,7 +2,7 @@
   "name": "korobeiniki",
   "version": "0.0.0",
   "repository": {
-    "url": "https://neovelop.visualstudio.com/DefaultCollection/Korobeiniki/_git/Korobeiniki"
+    "url": "https://github.com/oocx/korobeiniki"
   },
   "scripts": {
     "ng": "ng --extra-webpack-config webpack.partial.js",
