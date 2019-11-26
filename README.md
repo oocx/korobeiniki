@@ -1,6 +1,6 @@
 # Korobeiniki - a tetris sample made with Angular
 
-This project is a tetris clone made with Angular 9. I created it as a sample application for a blog series on web development with Angular. My primary goal was not to create just another tetris clone, but to have a high quality sample application for my blog posts, and to practice my Angular skills in a fun way.
+This project is a tetris clone made with Angular 9. I created it as a sample application for a [blog series on web development with Angular](https://medium.com/@oocx/game-development-with-angular-how-to-develop-your-own-tetris-clone-2e95f7af3a7e?sk=9cd2e1aad502541c3b31f53115236fb5). My primary goal was not to create just another tetris clone, but to have a high quality sample application for my blog posts, and to practice my Angular skills in a fun way.
 
 ## Features
 
