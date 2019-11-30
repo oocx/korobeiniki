@@ -1,34 +1,35 @@
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+
 import { Score } from './model';
 
 export class Events {
 
-  public linesCleared$ = new EventEmitter<number>();
+  public linesCleared$ = new Subject<number>();
 
-  public tetrominoDropped$ = new EventEmitter();
+  public tetrominoDropped$ = new Subject();
 
-  public tetrominoHit$ = new EventEmitter();
+  public tetrominoHit$ = new Subject();
 
-  public tetrominoSpawned$ = new EventEmitter<number>();
+  public tetrominoSpawned$ = new Subject<number>();
 
-  public levelUp$ = new EventEmitter<number>();
+  public levelUp$ = new Subject<number>();
 
-  public rotated$ = new EventEmitter();
+  public rotated$ = new Subject();
 
-  public moved$ = new EventEmitter();
+  public moved$ = new Subject();
 
-  public score$ = new EventEmitter<Score>();
+  public score$ = new Subject<Score>();
 
-  public highscore$ = new EventEmitter<Score>();
+  public highscore$ = new Subject<Score>();
 
-  public gameStarted$ = new EventEmitter<string>();
+  public gameStarted$ = new Subject<string>();
 
-  public gameOver$ = new EventEmitter();
+  public gameOver$ = new Subject();
 
-  public paused$ = new EventEmitter();
+  public paused$ = new Subject();
 
-  public continued$ = new EventEmitter();
+  public continued$ = new Subject();
 
-  public playerNameEntered$ = new EventEmitter();
+  public playerNameEntered$ = new Subject();
 
 }
