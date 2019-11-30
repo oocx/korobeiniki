@@ -36,8 +36,8 @@ export class Field {
     }
   }
 
-  public removeLine(startY: number) {
-    for (let y = startY; y > 0; y--) {
+  public removeLine(line: number) {
+    for (let y = line; y > 0; y--) {
       for (let x = 0; x < this.width; x++) {
         this.data[y][x].type = this.data[y - 1][x].type;
       }
