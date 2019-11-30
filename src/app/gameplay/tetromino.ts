@@ -1,6 +1,6 @@
 import { Field } from './field';
 import { RandomGenerator, ColoredTetrominoType } from './random-generator';
-import { Block, TetrominoType, BlockData } from './model';
+import { TetrominoType, BlockData } from './model';
 import { Events } from './events';
 
 export class Tetromino implements TetrominoType {

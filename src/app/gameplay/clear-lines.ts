@@ -1,4 +1,3 @@
-import { BlockData } from './model';
 import { Field } from './field';
 import { Events } from './events';
 
