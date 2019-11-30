@@ -7,7 +7,7 @@ import { Movement } from './movement';
 import { Tetromino } from './tetromino';
 import { Events } from './events';
 import { RandomGenerator } from './random-generator';
-import { ScoreCalculator } from '../scoring/score';
+import { ScoreCalculator } from '../scoring/score-calculator';
 
 
 export class Game {
@@ -74,7 +74,7 @@ export class Game {
   private movement: Movement;
   private lines: ClearLines;
   private score: ScoreCalculator;
-  private playerNameField;
+  private playerNameField: string;
 
 
   constructor() {
