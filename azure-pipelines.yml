@@ -11,29 +11,26 @@ pool:
 
 
 variables:
-  npm_config_cache: $(Pipeline.Workspace)/node_modules
+  npm_config_cache: $(Pipeline.Workspace)/.npm
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '12.x'
+    versionSpec: '13.x'
   displayName: 'Install Node.js'
 
 - script: |
     cp package-lock.json package-lock.original.json
   displayName: 'create copy of package lock to use as cache key'
-  enabled: false
 
 - task: Cache@2
   inputs:
     key: 'npm | "$(Agent.OS)" | package-lock.original.json'
     path: $(npm_config_cache)
-    cacheHitVar: CACHE_RESTORED
   displayName: Cache node_modules
-  enabled: false
 
 - script: |
-    node install.js
+    npm install --no-optional --ignore-scripts
   displayName: 'npm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
