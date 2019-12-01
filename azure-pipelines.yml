@@ -11,7 +11,7 @@ pool:
 
 
 variables:
-  npm_config_cache: $(Pipeline.Workspace)/node_modules
+  npm_config_cache: $(Build.SourcesDirectory)/node_modules
 
 steps:
 - task: NodeTool@0
