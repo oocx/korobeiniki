@@ -11,6 +11,8 @@ export class GameLoopService {
   public get fps$() { return this.gameLoop.fps$; }
   public get started() { return this.gameLoop.started; }
 
+  private gameLoop = new GameLoop();
+
   public start() {
     this.gameLoop.start();
   }
@@ -19,6 +21,7 @@ export class GameLoopService {
     this.gameLoop.stop();
   }
 
-  constructor(private gameLoop: GameLoop) {}
+
+  constructor() {}
 
 }

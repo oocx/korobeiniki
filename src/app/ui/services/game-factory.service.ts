@@ -7,6 +7,8 @@ import { GameFactory } from 'src/app/gameplay/game-factory';
 })
 export class GameFactoryService {
 
+  private gameFactory = new GameFactory();
+
   public get gamesCreated$() {
     return this.gameFactory.gamesCreated$;
   }
@@ -19,5 +21,5 @@ export class GameFactoryService {
     return this.gameFactory.createMultiplayerGames(numberOfPlayers);
   }
 
-  constructor(private gameFactory: GameFactory) {}
+  constructor() {}
 }
