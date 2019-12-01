@@ -31,6 +31,9 @@ steps:
   displayName: Cache node_modules
 
 - script: |
+    echo '$(Pipeline.Workspace)'
+    echo '$(npm_config_cache)'
+    ls '$(npm_config_cache)' -la
     ls -la
     ls -la node_modules
     ls -la node_modules/.bin
