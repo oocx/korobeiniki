@@ -25,7 +25,7 @@ steps:
 
 - task: Cache@2
   inputs:
-    key: 'npm | "$(Agent.OS)2" | package-lock.original.json'
+    key: 'npm | "$(Agent.OS)3" | package-lock.original.json'
     path: $(npm_config_cache)
     cacheHitVar: CACHE_RESTORED
   displayName: Cache node_modules
@@ -35,8 +35,6 @@ steps:
     echo '$(npm_config_cache)'
     ls '$(npm_config_cache)' -la
     ls -la
-    ls -la node_modules
-    ls -la node_modules/.bin
   displayName: 'Debug'
 
 - script: |
