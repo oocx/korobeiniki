@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './components/login/login.component';
-import { GameComponent } from './components/game/game.component';
-import { TwoPlayerGameComponent } from './components/two-player-game/two-player-game.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { CreditsComponent } from './components/credits/credits.component';
-import { HighscoreComponent } from './components/highscore/highscore.component';
-import { LoadingCompletedGuard } from './infrastructure/loading-completed.guard';
+import { LoginComponent } from 'src/app/ui/components/login/login.component';
+import { GameComponent } from 'src/app/ui/components/game/game.component';
+import { TwoPlayerGameComponent } from 'src/app/ui/components/two-player-game/two-player-game.component';
+import { MenuComponent } from 'src/app/ui/components/menu/menu.component';
+import { CreditsComponent } from 'src/app/ui/components/credits/credits.component';
+import { HighscoreComponent } from 'src/app/ui/components/highscore/highscore.component';
+import { LoadingCompletedGuard } from 'src/app/ui/services/loading-completed.guard';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },

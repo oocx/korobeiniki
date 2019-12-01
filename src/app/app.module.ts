@@ -3,19 +3,18 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { AppComponent } from './app.component';
-import { BlockComponent } from './block/block.component';
-import { FieldComponent } from './components/field/field.component';
+import { AppComponent } from './ui/components/app/app.component';
+import { BlockComponent } from './ui/components/block/block.component';
+import { FieldComponent } from './ui/components/field/field.component';
 import { environment } from '../environments/environment';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './ui/components/login/login.component';
 import { RoutingModule } from './routing.module';
-import { GameComponent } from './components/game/game.component';
-import { HighscoreComponent } from './components/highscore/highscore.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { CreditsComponent } from './components/credits/credits.component';
-import { TwoPlayerGameComponent } from './components/two-player-game/two-player-game.component';
-import { EnterPlayerNameComponent } from './components/enter-player-name/enter-player-name.component';
-import { NavigationMusicService } from './audio/navigation-music.service';
+import { GameComponent } from './ui/components/game/game.component';
+import { HighscoreComponent } from './ui/components/highscore/highscore.component';
+import { MenuComponent } from './ui/components/menu/menu.component';
+import { CreditsComponent } from './ui/components/credits/credits.component';
+import { TwoPlayerGameComponent } from './ui/components/two-player-game/two-player-game.component';
+import { EnterPlayerNameComponent } from './ui/components/enter-player-name/enter-player-name.component';
 
 @NgModule({
   declarations: [

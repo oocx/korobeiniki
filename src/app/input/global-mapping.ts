@@ -1,4 +1,4 @@
-import { KeyMap } from 'src/app/infrastructure/keymap';
+import { KeyMap } from 'src/app/input/keymap';
 import { Game } from '../gameplay/game';
 import { GameState } from '../gameplay/model';
 import { Router } from '@angular/router';

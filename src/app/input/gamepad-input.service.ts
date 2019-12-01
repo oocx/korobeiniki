@@ -1,9 +1,10 @@
-import { GamepadService, GamepadState, Buttons } from './gamepad.service';
-import { LogService } from '../infrastructure/log.service';
-import { GameState } from '../gameplay/model';
 import { Injectable } from '@angular/core';
-import { Game } from '../gameplay/game';
 import { Router } from '@angular/router';
+
+import { GameFactoryService } from './../ui/services/game-factory.service';
+import { GamepadService, GamepadState, Buttons } from './gamepad.service';
+import { GameState } from '../gameplay/model';
+import { Game } from '../gameplay/game';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +13,16 @@ export class GamepadInputService {
 
   public games: Game[] = [];
 
-  constructor(private router: Router, private log: LogService, gamepadService: GamepadService) {
+  constructor(private router: Router, gamepadService: GamepadService, gameFactoryService: GameFactoryService) {
     gamepadService.input$.subscribe(gamepad => this.tick(gamepad.state, gamepad.gamepadId));
+    gameFactoryService.gamesCreated$.subscribe(games => this.games = games);
   }
 
   private tick(gamepad: GamepadState, gamepadId: number) {
     try {
       this.handleGamepad(gamepad, gamepadId);
     } catch (ex) {
-      this.log.writeLine('error in gamepad tick: ' + ex);
+      console.error('error in gamepad tick: ' + ex);
     }
   }
 

@@ -1,9 +1,6 @@
-import { Injectable, HostListener, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
-import { Game } from '../gameplay/game';
-import { GameLoopService } from '../infrastructure/game-loop.service';
-import { LogService } from '../infrastructure/log.service';
-import { GameState } from '../gameplay/model';
+import { GameLoopService } from '../ui/services/game-loop.service';
 
 
 @Injectable({
@@ -18,7 +15,7 @@ export class GamepadService {
   private gamepads: Gamepad[] = [];
 
 
-  constructor(private loop: GameLoopService,  private log: LogService) {
+  constructor(private loop: GameLoopService) {
     this.loop.tick$.subscribe((ellapsedTime) => this.tick(ellapsedTime));
     setInterval(() => {
       // regular tick loop is only executed when the game is running
@@ -38,7 +35,7 @@ export class GamepadService {
       }
       this.tick(0);
     } catch (ex) {
-      this.log.writeLine('error in detectGamepads(): ' + ex);
+      console.error('error in detectGamepads(): ' + ex);
     }
   }
 
@@ -56,7 +53,7 @@ export class GamepadService {
         this.handleGamepad(gamepad, ellapsedTime, idx);
       }
     } catch (ex) {
-      this.log.writeLine('error in gamepad tick: ' + ex);
+      console.error('error in gamepad tick: ' + ex);
     }
   }
 

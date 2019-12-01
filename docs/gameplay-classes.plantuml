@@ -1,0 +1,105 @@
+@startuml Gameplay Classes
+
+!include style.plantuml
+
+class Game {
+  start()
+  pause()
+  continue()
+  stop()
+  rotateClockwise()
+  moveRight()
+  moveLeft()
+  moveUp()
+  moveDownFast()
+  drop()
+  tick(ellapsedTime: number)
+}
+class Field {
+  init()
+  removeLine(line: number)
+}
+
+class Tetromino {
+  spawnNew()
+  lock()
+  x: number
+  y: number
+  color: string
+  rotation: number
+}
+
+class Movement {
+  ghostX: number;
+  ghostY: number;
+  gameSpeed: number;
+  boolean tryMoveDown()
+  rotateClockwise()
+  moveRight()
+  moveLeft()
+  moveUp()
+  moveDownFast()
+  drop()
+}
+
+class ClearLines {
+  clearLines()
+}
+
+class RandomGenerator {
+  TetrominoType drawNext()
+}
+
+class ScoreCalculator
+
+class Score {
+  score: number
+  lines: number
+  level: number
+  gameTimeMs: number
+  timestamp: Date
+  playerName?: string
+}
+
+class BlockData {
+  x: number
+  y: number
+  px: number
+  py: number
+  type: string
+}
+
+class Events {
+  linesCleared$ : Subject<number>
+  tetrominoDropped$ : Subject
+  tetrominoHit$ : Subject
+  tetrominoSpawned$ : Subject<number>
+  levelUp$ : Subject<number>
+  rotated$ : Subject
+  moved$ : Subject
+  score$ : Subject<Score>
+  highscore$ : Subject<Score>
+  gameStarted$ : Subject<string>
+  gameOver$ : Subject
+  paused$ : Subject
+  continued$ : Subject
+  playerNameEntered$ : Subject
+}
+
+Game -down-> ClearLines
+Game -down-> Movement
+Game -down-> Tetromino
+Game -down-> Events
+Game -down-> RandomGenerator
+Game -down-> ScoreCalculator
+Game -down-> Field
+Field -down-> BlockData
+Tetromino o-- BlockData
+ScoreCalculator -down-> Events
+ScoreCalculator -> Score
+ClearLines -down-> Events
+Movement -down-> Events
+Tetromino -down->Events
+Tetromino -> RandomGenerator
+
+@enduml

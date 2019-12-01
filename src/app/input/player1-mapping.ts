@@ -1,6 +1,6 @@
-import { KeyMap } from 'src/app/infrastructure/keymap';
+import { KeyMap } from 'src/app/input/keymap';
 import { Game } from '../gameplay/game';
-import { GameLoopService } from '../infrastructure/game-loop.service';
+import { GameLoopService } from '../ui/services/game-loop.service';
 
 
 export class Player1Mapping extends KeyMap {

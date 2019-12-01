@@ -1,12 +1,12 @@
-import { Subscription } from 'rxjs';
-import { GameLoopService } from 'src/app/infrastructure/game-loop.service';
+import { GameLoopService } from 'src/app/ui/services/game-loop.service';
 import { Game } from '../gameplay/game';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Player1Mapping } from './player1-mapping';
 import { Player2Mapping } from './player2-mapping';
 import { GlobalMapping } from './global-mapping';
-import { KeyMap } from '../infrastructure/keymap';
+import { KeyMap } from '../input/keymap';
+import { GameFactoryService } from '../ui/services/game-factory.service';
 
 @Injectable({
   providedIn: 'root'
@@ -44,9 +44,10 @@ export class KeyboardInputService {
     this.globalMapping.games = games;
   }
 
-  constructor(private loop: GameLoopService, private router: Router) {
+  constructor(private loop: GameLoopService, router: Router, gameFactoryService: GameFactoryService) {
     this.globalMapping = new GlobalMapping(router);
     this.globalMapping.addListeners();
+    gameFactoryService.gamesCreated$.subscribe(games => this.games = games);
   }
 
 

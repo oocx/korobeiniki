@@ -1,0 +1,9 @@
+skinparam componentStyle uml2
+skinparam monochrome true
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam DefaultFontName arial
+skinparam DefaultFontSize 12
+skinparam ClassFontStyle bold
+hide empty fields
+hide circle

@@ -1,0 +1,22 @@
+@startuml Gameplay Classes
+
+!include style.plantuml
+
+[Gameplay]
+[Angular UI] as UI
+[Audio]
+[Input]
+[Highscore]
+[App]
+
+App -down-> Gameplay
+App -down-> UI
+App -down-> Audio
+App -down-> Input
+App -down-> Highscore
+Audio -down-> Gameplay
+Input -down-> Gameplay
+UI -down-> Gameplay
+Highscore -down-> Gameplay
+
+@enduml

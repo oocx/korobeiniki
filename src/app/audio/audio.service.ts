@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { LogService } from '../infrastructure/log.service';
-
 /**
  * Loads music and sound effects and provides an api
  * to playback sound and music.
@@ -28,7 +26,7 @@ export class AudioService {
 
   private audioContext: AudioContext = new AudioContext();
 
-  constructor(private httpClient: HttpClient, private log: LogService, private appRef: ApplicationRef) {
+  constructor(private httpClient: HttpClient, private appRef: ApplicationRef) {
     this.loadAllSoundsAndMusic();
   }
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Game } from '../gameplay/game';
 import { AudioService } from './audio.service';
 import { GameState } from '../gameplay/model';
+import { GameFactoryService } from '../ui/services/game-factory.service';
 
 /**
  * Plays sound effects when events occur in the game
@@ -16,7 +17,8 @@ import { GameState } from '../gameplay/model';
 })
 export class AudioEventsService {
 
-  constructor(private audio: AudioService) {
+  constructor(private audio: AudioService, gameFactoryService: GameFactoryService) {
+    gameFactoryService.gamesCreated$.subscribe(games => this.games = games);
   }
 
   public set games(games: Game[]) {
@@ -31,8 +33,9 @@ export class AudioEventsService {
 
 
   private registerGame(game: Game, player: number) {
-    game.state$.subscribe(state => this.onStateChanged(state));
     const events = game.events;
+    events.gameStarted$.subscribe(() => this.audio.playMusic('tetris'));
+    events.gameOver$.subscribe(() => this.audio.stopMusic());
     events.linesCleared$.subscribe(linesCleared => this.onLinesCleared(linesCleared, player));
     events.tetrominoDropped$.subscribe(() => this.audio.playSound('synth_misc_12', player));
     events.tetrominoHit$.subscribe(() => this.audio.playSound('hit', player));
@@ -45,16 +48,6 @@ export class AudioEventsService {
     if (level === 5) { this.audio.playMusic('cementcity'); }
     if (level === 10) { this.audio.playMusic('twister'); }
   }
-
-  private onStateChanged(state: GameState) {
-    switch (state) {
-      case GameState.Running:
-          this.audio.playMusic('tetris'); break;
-      case GameState.GameOver:
-          this.audio.stopMusic(); break;
-    }
-  }
-
 
   private onLinesCleared(linesCleared: number, player: number) {
     switch (linesCleared) {
