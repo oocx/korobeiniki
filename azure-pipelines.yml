@@ -11,7 +11,7 @@ pool:
 
 
 variables:
-  npm_config_cache: $(Pipeline.Workspace)/.npm
+  npm_config_cache: $(Pipeline.Workspace)/node_modules
 
 steps:
 - task: NodeTool@0
@@ -27,6 +27,7 @@ steps:
   inputs:
     key: 'npm | "$(Agent.OS)" | package-lock.original.json'
     path: $(npm_config_cache)
+    cacheHitVar: CACHE_RESTORED
   displayName: Cache node_modules
 
 - script: |
