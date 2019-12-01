@@ -31,6 +31,12 @@ steps:
   displayName: Cache node_modules
 
 - script: |
+    ls -la
+    ls -la node_modules
+    ls -la node_modules/.bin
+  displayName: 'Debug'
+
+- script: |
     npm install --no-optional --ignore-scripts
   displayName: 'npm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
