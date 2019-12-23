@@ -5,7 +5,7 @@ import { AudioEventsService } from 'src/app/audio/audio-events.service';
 import { KeyboardInputService } from 'src/app/input/keyboard-input.service';
 import { GamepadInputService } from 'src/app/input/gamepad-input.service';
 import { UpdateUIService } from './../../services/update-ui.service';
-
+import { HighscoreService } from './../../../highscore/highscore.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,8 @@ export class AppComponent {
     private keyboardInputService: KeyboardInputService,
     private navigationMusicService: NavigationMusicService,
     private audioEventsService: AudioEventsService,
-    private updateUIService: UpdateUIService
+    private updateUIService: UpdateUIService,
+    private highscoreService: HighscoreService
   ) {
 
   }

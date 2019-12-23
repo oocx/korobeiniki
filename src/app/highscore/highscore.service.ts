@@ -4,6 +4,7 @@ import { FirebaseService } from './firebase.service';
 import { Score } from 'src/app/gameplay/model';
 import { Events } from 'src/app/gameplay/events';
 import { Game } from 'src/app/gameplay/game';
+import { GameFactoryService } from '../ui/services/game-factory.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class HighscoreService {
 
   private lastScore: Score = null;
 
-  constructor(private appRef: ApplicationRef, private firebase: FirebaseService) {
+  constructor(private appRef: ApplicationRef, private firebase: FirebaseService, gameFactoryService: GameFactoryService) {
+    gameFactoryService.gamesCreated$.subscribe(games => this.games = games);
   }
 
   public async getAllEntries(): Promise<Score[]> {
