@@ -1,3 +1,5 @@
+import { takeUntil, single } from 'rxjs/operators';
+
 import { Events } from '../gameplay/events';
 import { Score } from '../gameplay/model';
 
@@ -13,8 +15,8 @@ export class ScoreCalculator {
   }
 
   constructor(private events: Events) {
-    this.events.linesCleared$.subscribe(linesCleared => this.onLinesCleared(linesCleared));
-    this.events.gameStarted$.subscribe(() => this.onGameStarted());
+    this.events.linesCleared$.pipe(takeUntil(this.events.gameOver$)).subscribe(linesCleared => this.onLinesCleared(linesCleared));
+    this.events.gameStarted$.pipe(single()).subscribe(() => this.onGameStarted());
     this.onGameStarted();
   }
 

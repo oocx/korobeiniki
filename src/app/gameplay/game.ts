@@ -154,6 +154,8 @@ export class Game {
       return;
     }
 
+    this.score.tick(ellapsedTime);
+
     if (!this.movement.tryMoveDown(ellapsedTime)) {
 
       if (this.tetromino.y > 0) {
@@ -169,8 +171,6 @@ export class Game {
         this.events.gameOver$.next();
       }
     }
-
-    this.score.tick(ellapsedTime);
   }
   private init() {
     this.field = new Field();

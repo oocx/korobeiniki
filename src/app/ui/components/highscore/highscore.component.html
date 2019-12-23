@@ -1,6 +1,6 @@
 <h1>High Score</h1>
 <ol>
-    <li *ngFor="let score of entries">
+    <li *ngFor="let score of entries" [class.lastScore]="isLastScore(score)">
         {{score.playerName}} {{score.score}}, level {{score.level}}, {{ score.gameTimeMs / 1000 | number:'1.0-0' }} seconds
     </li>
 </ol>

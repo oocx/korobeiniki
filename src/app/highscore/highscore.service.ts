@@ -1,10 +1,13 @@
 import { Injectable, ApplicationRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { takeUntil, first } from 'rxjs/operators';
 
 import { FirebaseService } from './firebase.service';
 import { Score } from 'src/app/gameplay/model';
 import { Events } from 'src/app/gameplay/events';
 import { Game } from 'src/app/gameplay/game';
 import { GameFactoryService } from '../ui/services/game-factory.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +22,10 @@ export class HighscoreService {
 
   private highscore: Score = null;
 
-  private lastScore: Score = null;
+  public lastScore: Score = null;
 
-  constructor(private appRef: ApplicationRef, private firebase: FirebaseService, gameFactoryService: GameFactoryService) {
+  constructor(
+    private appRef: ApplicationRef, private firebase: FirebaseService, private router: Router, gameFactoryService: GameFactoryService) {
     gameFactoryService.gamesCreated$.subscribe(games => this.games = games);
   }
 
@@ -32,9 +36,11 @@ export class HighscoreService {
   }
 
   private async registerGame(game: Game) {
-    game.events.score$.subscribe(score => this.onScore(score, game.events));
-    game.events.gameOver$.subscribe(() => this.onGameOver(game.playerName));
-    game.events.highscore$.next(this.highscore);
+    const events = game.events;
+    events.gameStarted$.pipe(takeUntil(events.gameOver$)).subscribe(() => this.lastScore = null);
+    events.score$.pipe(takeUntil(events.gameOver$)).subscribe(score => this.onScore(score, game.events));
+    events.gameOver$.pipe(first()).subscribe(() => this.onGameOver(game.playerName));
+    events.highscore$.next(this.highscore);
 
     const lastHighScore = await this.firebase.firestore.collection(process.env.FIREBASE_COLLECTION).orderBy('score', 'desc').limit(1).get();
 
@@ -48,8 +54,11 @@ export class HighscoreService {
   private async onGameOver(playerName: string) {
     if (this.lastScore === null) { return; }
 
-    await this.firebase.firestore.collection(process.env.FIREBASE_COLLECTION).add({ ...this.lastScore, playerName });
-    this.lastScore = null;
+    // round time, as we would not get the exact same result back from the service otherwise
+    this.lastScore = { ...this.lastScore, playerName, gameTimeMs: Math.floor(this.lastScore.gameTimeMs) };
+
+    await this.firebase.firestore.collection(process.env.FIREBASE_COLLECTION).add(this.lastScore);
+    this.router.navigate(['highscore']);
   }
 
   private onScore(score: Score, events: Events) {

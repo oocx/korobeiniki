@@ -15,6 +15,8 @@ export class HighscoreComponent implements OnDestroy {
 
   public entries: Score[] = [];
 
+  private lastScore: Score = null;
+
   private subscription: Subscription;
   public ngOnDestroy() {
     if (this.subscription) {
@@ -25,15 +27,22 @@ export class HighscoreComponent implements OnDestroy {
 
   constructor(
     gamepadService: GamepadService,
-    highscoreSerivce: HighscoreService,
     appRef: ApplicationRef,
+    highscoreSerivce: HighscoreService,
     private router: Router
     ) {
+    this.lastScore = highscoreSerivce.lastScore;
     this.subscription = gamepadService.input$.subscribe(({state}) => this.onInput(state));
     highscoreSerivce.getAllEntries().then(entries => {
       this.entries = entries;
       appRef.tick();
     });
+   }
+
+   public isLastScore(score: Score) {
+     return score.score === this.lastScore.score &&
+      score.gameTimeMs === this.lastScore.gameTimeMs &&
+      score.playerName === this.lastScore.playerName;
    }
 
   @HostListener('window:keydown')
