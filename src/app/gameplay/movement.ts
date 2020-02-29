@@ -79,26 +79,19 @@ export class Movement {
   public moveDownFast(ellapsedTimeMs: number) {
     this.lockDelay -= ellapsedTimeMs * 8;
 
-    if (!this.canMoveDownFast) {
+    if (!this.canMoveDownFast || !this.canMove(0, 1)) {
       this.deltaY = 0;
       return;
      }
-    if (!this.canMove(0, 1)) {
-      this.deltaY = 0;
-      return;
-    }
 
     this.deltaY += ellapsedTimeMs * 20;
   }
 
   public drop() {
-    let hasMoved = false;
     while (this.canMove(0, 1)) {
-      this.tetromino.y++;
-      hasMoved = true;
+      this.moveDown();
     }
     this.deltaY = 0;
-    if (hasMoved) { this.events.moved$.next(); }
   }
 
   public tryMoveDown(ellapsedTime: number) {
@@ -106,19 +99,13 @@ export class Movement {
       this.lockDelay = 0;
       this.deltaY += ellapsedTime;
 
-      let hasMoved = false;
-
       while (this.deltaY > this.stepTime && this.canMove(0, 1)) {
-        this.tetromino.y++;
-        this.tetromino.ghostY = this.ghostY;
-        this.deltaY -= this.stepTime;
-        this.canMoveDownFast = true;
-        hasMoved = true;
+        this.moveDown();
       }
       this.lockDelay = this.stepTime * 1.5;
 
-      if (hasMoved) { this.events.moved$.next(); }
       return true;
+
     } else if (this.lockDelay > 0) {
       this.lockDelay = Math.max(-1, this.lockDelay - ellapsedTime);
       return true;
@@ -178,6 +165,14 @@ export class Movement {
     }
     this.tetromino.blocks = originalBlocks;
     this.tetromino.ghostY = this.ghostY;
+  }
+
+  private moveDown() {
+    this.tetromino.y++;
+    this.tetromino.ghostY = this.ghostY;
+    this.deltaY -= this.stepTime;
+    this.canMoveDownFast = true;
+    this.events.moved$.next();
   }
 
 
