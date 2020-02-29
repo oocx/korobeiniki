@@ -33,47 +33,11 @@ export class Movement {
     }
 
   public moveRight(ellapsedTimeMs: number, isFirstEvent: boolean) {
-    if (!this.canMove(1, 0)) { return; }
-
-    if (isFirstEvent) {
-      this.deltaX = 0;
-    } else {
-      this.deltaX += ellapsedTimeMs * 6;
-    }
-
-    let hasMoved = false;
-    while ((isFirstEvent || this.deltaX > this.horizontalStepTime) && this.canMove(1, 0)) {
-      this.tetromino.x++;
-      this.tetromino.ghostY = this.ghostY;
-      this.deltaX = Math.max(0, this.deltaX - this.horizontalStepTime);
-      this.canMoveDownFast = true;
-      hasMoved = true;
-      isFirstEvent = false;
-    }
-    if (hasMoved) {
-      this.events.moved$.next();
-    }
+    this.moveLeftRight(ellapsedTimeMs, isFirstEvent, 1);
   }
 
   public moveLeft(ellapsedTimeMs: number, isFirstEvent: boolean) {
-    if (!this.canMove(-1, 0)) { return; }
-
-    if (isFirstEvent) {
-      this.deltaX = 0;
-    } else {
-      this.deltaX += ellapsedTimeMs * 6;
-    }
-
-    let hasMoved = false;
-    while ((isFirstEvent || this.deltaX > this.horizontalStepTime) && this.canMove(-1, 0)) {
-      this.tetromino.x--;
-      this.tetromino.ghostY = this.ghostY;
-      this.deltaX -= this.horizontalStepTime;
-      this.canMoveDownFast = true;
-      hasMoved = true;
-      isFirstEvent = false;
-    }
-    if (hasMoved ) { this.events.moved$.next(); }
+    this.moveLeftRight(ellapsedTimeMs, isFirstEvent, -1);
   }
 
   public moveDownFast(ellapsedTimeMs: number) {
@@ -175,5 +139,23 @@ export class Movement {
     this.events.moved$.next();
   }
 
+  private moveLeftRight(ellapsedTimeMs: number, isFirstEvent: boolean, dx: 1 | -1) {
+    if (!this.canMove(dx, 0)) { return; }
 
+    if (isFirstEvent) {
+      // when using a keyboard, the first key press should immediately trigger a movement
+      this.deltaX = this.horizontalStepTime + 1;
+    } else {
+      this.deltaX += ellapsedTimeMs * 6;
+    }
+
+    while ((this.deltaX > this.horizontalStepTime) && this.canMove(dx, 0)) {
+      this.tetromino.x += dx;
+      this.tetromino.ghostY = this.ghostY;
+      this.deltaX = Math.max(0, this.deltaX - this.horizontalStepTime);
+      this.canMoveDownFast = true;
+      isFirstEvent = false;
+      this.events.moved$.next();
+    }
+  }
 }
