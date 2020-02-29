@@ -42,8 +42,7 @@ steps:
   displayName: 'npm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
-- script: |
-    echo $GH_TOKEN
+- script: |    
     node_modules/.bin/semantic-release --debug
   displayName: 'generate version and changelog'
 
