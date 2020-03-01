@@ -20,12 +20,12 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    cp package-lock.json package-lock.original.json
+    node generate-cache-key.js
   displayName: 'create copy of package lock to use as cache key'
 
 - task: Cache@2
   inputs:
-    key: 'npm | "$(Agent.OS)3" | package-lock.original.json'
+    key: 'npm | "$(Agent.OS)" | package-lock.hash'
     path: $(npm_config_cache)
     cacheHitVar: CACHE_RESTORED
   displayName: Cache node_modules
@@ -42,7 +42,7 @@ steps:
   displayName: 'npm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
-- script: |    
+- script: |
     node_modules/.bin/semantic-release --debug
   displayName: 'generate version and changelog'
 
