@@ -56,6 +56,7 @@
     "karma-jasmine-html-reporter": "^1.5.2",
     "karma-junit-reporter": "^2.0.1",
     "modclean": "^3.0.0-beta.1",
+    "modclean-patterns-angular": "^1.0.0",
     "now": "^17.0.4",
     "semantic-release": "^17.0.4",
     "ts-node": "~8.6.2",
