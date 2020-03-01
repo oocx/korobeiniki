@@ -86,7 +86,7 @@ steps:
   enabled: false
 
 - script: |
-    ls $(npm_config_cache) -la
+    ls $(npm_config_cache) -la -R
     echo y | node_modules/.bin/modclean --patterns="angular"
-    ls (npm_config_cache) -la
+    ls $(npm_config_cache) -la -R
   displayName: 'trim node_modules to reduce cache size'
