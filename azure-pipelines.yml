@@ -82,5 +82,5 @@ steps:
   timeoutInMinutes: 1
 
 - script: |
-    echo y |  modclean --patterns="angular"
+    echo y | node_modules/.bin/modclean --patterns="angular"
   displayName: 'trim node_modules to reduce cache size'
