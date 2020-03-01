@@ -35,8 +35,9 @@ devDependencies:
   karma-jasmine: 2.0.1_karma@4.4.1
   karma-jasmine-html-reporter: 1.4.2_6042ea507d2c2b0352305399e5fea334
   karma-junit-reporter: 2.0.1_karma@4.4.1
+  modclean: 3.0.0-beta.1
   now: 16.6.0
-  puppeteer: 2.0.0
+  pnpm: 4.10.0
   semantic-release: 15.13.31_semantic-release@15.13.31
   ts-node: 8.5.4_typescript@3.7.2
   tslint: 5.20.1_typescript@3.7.2
@@ -2308,6 +2309,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-w3b5y1PXWlhYulevrTJ0lizkQ5CyqfeU6BIRDbuhsMupstHQOeb1Ur80tcB1zxSu7AwyY/qCQ7Vvqklh31ZBFw==
+  /await-handler/1.1.2:
+    dev: true
+    resolution:
+      integrity: sha512-dihteGhwbJpT89kVbacWiyKeAZr+En0YGK6pAKQJLR0En9ZxSH2H4TTvfG4bBjzFq9gDAma4y9BrpDns6j5UiQ==
   /aws-sign2/0.7.0:
     resolution:
       integrity: sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=
@@ -3066,6 +3071,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==
+  /cli-spinners/1.3.1:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-1QL4544moEsDVH9T/l6Cemov/37iv1RtoKf7NJ04A60+4MREXNfx/QvavbH6QoGdsD4N4Mwy49cmaINR/o2mdg==
   /cli-spinners/2.2.0:
     engines:
       node: '>=6'
@@ -4054,6 +4065,12 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
+  /empty-dir/1.0.0:
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha512-97qcDM6mUA1jAeX6cktw7akc5awIGA+VIkA5MygKOKA+c2Vseo/xwKN0JNJTUhZUtPwZboKVD2p1xu+sV/F4xA==
   /encodeurl/1.0.2:
     engines:
       node: '>= 0.8'
@@ -4186,6 +4203,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-p96IkUGgWpSwhUQDstCg+/qY87c=
+  /es6-promise/3.3.1:
+    dev: true
+    resolution:
+      integrity: sha1-oIzd6EzNvzTQJ6FFG8kdS80ophM=
   /es6-promise/4.2.8:
     dev: true
     resolution:
@@ -4435,16 +4456,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-Nmb6QXkELsuBr24CJSkilo6UHHgbekK5UiZgfE6UHD3Eb27YC6oD+bhcT+tJ6cl8dmsgdQxnWlcry8ksBIBLpw==
-  /extract-zip/1.6.7:
-    dependencies:
-      concat-stream: 1.6.2
-      debug: 2.6.9
-      mkdirp: 0.5.1
-      yauzl: 2.4.1
-    dev: true
-    hasBin: true
-    resolution:
-      integrity: sha1-qEC0uK9kAyZMjbV/Txp0Mz74H+k=
   /extsprintf/1.3.0:
     engines:
       '0': node >=0.6.0
@@ -4511,12 +4522,6 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha512-D2y4bovYpzziGgbHYtGCMjlJM36vAl/y+xUyn1C+FVx8szd1E+86KwVw6XvYSzOP8iMpm1X0I4xJD+QtUb36OA==
-  /fd-slicer/1.0.1:
-    dependencies:
-      pend: 1.2.0
-    dev: true
-    resolution:
-      integrity: sha1-i1vL2ewyfFBBv5qwI/1nUPEXfmU=
   /figgy-pudding/3.5.1:
     resolution:
       integrity: sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
@@ -7217,6 +7222,29 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+  /modclean-patterns-default/1.1.2:
+    dev: true
+    resolution:
+      integrity: sha512-h2+ES3SKl+JOtfptJjwJz5fdogFI0byYssw3lXoESNkOcXCnjCvvW6IbMagAKFmfWOx+n9esyomxWP1w4edZjg==
+  /modclean/3.0.0-beta.1:
+    dependencies:
+      await-handler: 1.1.2
+      chalk: 2.4.2
+      commander: 2.20.3
+      empty-dir: 1.0.0
+      glob: 7.1.6
+      lodash.uniq: 4.5.0
+      modclean-patterns-default: 1.1.2
+      ora: 2.1.0
+      progress: 2.0.3
+      rimraf: 2.7.1
+      subdirs: 1.0.1
+    dev: true
+    engines:
+      node: '>=8.0.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-NyJpuqXMUI190sZePU+dBcwlGaqhfFC+UL5WyNSxmNLOHATg9cVSgRpbY+mUbwUj7t5trb4vYscgXArKevYsdA==
   /modify-values/1.0.1:
     dev: true
     engines:
@@ -7800,6 +7828,19 @@ packages:
     dev: false
     resolution:
       integrity: sha1-aabOicRCpEQDFBrS+bNwvVu29O4=
+  /ora/2.1.0:
+    dependencies:
+      chalk: 2.4.2
+      cli-cursor: 2.1.0
+      cli-spinners: 1.3.1
+      log-symbols: 2.2.0
+      strip-ansi: 4.0.0
+      wcwidth: 1.0.1
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-hNNlAd3gfv/iPmsNxYoAPLvxg7HuPozww7fFonMZvL84tP6Ox5igfk5j/+a9rtJJwqMgKK+JgWsAQik5o0HTLA==
   /ora/3.4.0:
     dependencies:
       chalk: 2.4.2
@@ -8207,10 +8248,6 @@ packages:
       node: '>=0.12'
     resolution:
       integrity: sha512-U/il5MsrZp7mGg3mSQfn742na2T+1/vHDCG5/iTI3X9MKUuYUZVLQhyRsg06mCgDBTd57TxzgZt7P+fYfjRLtA==
-  /pend/1.2.0:
-    dev: true
-    resolution:
-      integrity: sha1-elfrVQpng/kRUzH89GY9XI4AelA=
   /performance-now/2.1.0:
     resolution:
       integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
@@ -8285,6 +8322,13 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-GpgvHHocGRyQm74b6FWEZZVRroHKE1I0/BTjAmySaohK+cUn+hZpbqXkc3KWgW3gQYkqcQej35FohcT0FRlkRQ==
+  /pnpm/4.10.0:
+    dev: true
+    engines:
+      node: '>=10'
+    hasBin: true
+    resolution:
+      integrity: sha512-u6GAXFPzaQsDN28dWIO0q0eW7sLsbhRlPYoZplqOBU5nI2otJtiSsPJ34ADb29XBzJg8wJC87Y/pJM/AgmJ/uA==
   /portfinder/1.0.25:
     dependencies:
       async: 2.6.3
@@ -8437,10 +8481,6 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-t/7RxHXPH6cJtP0pRG6smSr9QJidhB+3kXu0KgXnbGYMgzEnUxRQ4/LDdfOwZEMyIh3/xHb8PX3t+lfL9z+YVQ==
-  /proxy-from-env/1.0.0:
-    dev: true
-    resolution:
-      integrity: sha1-M8UDmPcOp+uW0h97gXYwpVeRx+4=
   /prr/1.0.1:
     resolution:
       integrity: sha1-0/wRS6BplaRexok/SEzrHXj19HY=
@@ -8491,22 +8531,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
-  /puppeteer/2.0.0:
-    dependencies:
-      debug: 4.1.1
-      extract-zip: 1.6.7
-      https-proxy-agent: 3.0.1
-      mime: 2.4.4
-      progress: 2.0.3
-      proxy-from-env: 1.0.0
-      rimraf: 2.7.1
-      ws: 6.2.1
-    dev: true
-    engines:
-      node: '>=8.16.0'
-    requiresBuild: true
-    resolution:
-      integrity: sha512-t3MmTWzQxPRP71teU6l0jX47PHXlc4Z52sQv4LJQSZLq1ttkKS2yGM3gaI57uQwZkNaoGd0+HPPMELZkcyhlqA==
   /q/1.5.1:
     dev: true
     engines:
@@ -9115,6 +9139,13 @@ packages:
       node-sass: ^4.0.0
       sass: ^1.3.0
       webpack: ^4.36.0
+    peerDependenciesMeta:
+      fibers:
+        optional: true
+      node-sass:
+        optional: true
+      sass:
+        optional: true
     resolution:
       integrity: sha512-+qeMu563PN7rPdit2+n5uuYVR0SSVwm0JsOUsaJXzgYcClWSlmX0iHDnmeOobPkf5kUglVot3QS6SyLyaQoJ4w==
   /sass/1.23.3:
@@ -9887,6 +9918,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-Yw3WMTzVwevT6ZTrLCYNHAFmanMxdylelL3hkWNgPMeTCpMwpV3nXjpOHuBXtFv7aiO2xRuQS6OoAdgkNcSNug==
+  /subdirs/1.0.1:
+    dependencies:
+      es6-promise: 3.3.1
+    dev: true
+    resolution:
+      integrity: sha1-1lJkeHR25Mr378VJj7dAxp9ibUg=
   /superstatic/6.0.4:
     dependencies:
       as-array: 2.0.0
@@ -10762,6 +10799,9 @@ packages:
     peerDependencies:
       html-webpack-plugin: ^2.21.0 || ~3 || >=4.0.0-alpha.2 <5
       webpack: ^1.12.11 || ~2 || ~3 || ~4
+    peerDependenciesMeta:
+      html-webpack-plugin:
+        optional: true
     resolution:
       integrity: sha512-6XbGYzjh30cGQT/NsC+9IAkJP8IL7/t47sbwR5DLSsamiD56Rwv4/+hsgEHsviPvrEFZ0JRAQtCRN3UsR2Pw9g==
   /webpack/4.41.2_webpack@4.41.2:
@@ -11103,12 +11143,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-AwiOnr+edWtpdRYR0qXvWRSCyZU=
-  /yauzl/2.4.1:
-    dependencies:
-      fd-slicer: 1.0.1
-    dev: true
-    resolution:
-      integrity: sha1-lSj0QtqxsihOWLQ3m7GU4i4MQAU=
   /yeast/0.1.2:
     dev: true
     resolution:
@@ -11133,44 +11167,45 @@ packages:
     resolution:
       integrity: sha512-UAYfiuvxLN4oyuqhJwd21Uxb4CNawrq6fPS/05Su5L4G+1TN+HVDJMUHNMobVQDFJRir2cLAODXwluaOKB7HFg==
 specifiers:
-  '@angular-devkit/build-angular': ~0.900.0-rc.4
-  '@angular/animations': ~9.0.0-rc.4
-  '@angular/cli': ^9.0.0-rc.4
-  '@angular/common': ~9.0.0-rc.4
-  '@angular/compiler': ~9.0.0-rc.4
-  '@angular/compiler-cli': ~9.0.0-rc.4
-  '@angular/core': ~9.0.0-rc.4
-  '@angular/forms': ~9.0.0-rc.4
-  '@angular/language-service': ~9.0.0-rc.4
-  '@angular/platform-browser': ~9.0.0-rc.4
-  '@angular/platform-browser-dynamic': ~9.0.0-rc.4
-  '@angular/pwa': ^0.900.0-rc.4
-  '@angular/router': ~9.0.0-rc.4
-  '@angular/service-worker': ~9.0.0-rc.4
-  '@semantic-release/exec': ^3.3.8
-  '@semantic-release/git': ^7.0.18
-  '@types/jasmine': ~3.5.0
+  '@angular-devkit/build-angular': 0.900.4
+  '@angular/animations': ~9.0.4
+  '@angular/cli': ^9.0.4
+  '@angular/common': ~9.0.4
+  '@angular/compiler': ~9.0.4
+  '@angular/compiler-cli': ~9.0.4
+  '@angular/core': ~9.0.4
+  '@angular/forms': ~9.0.4
+  '@angular/language-service': ~9.0.4
+  '@angular/platform-browser': ~9.0.4
+  '@angular/platform-browser-dynamic': ~9.0.4
+  '@angular/pwa': ~0.900.4
+  '@angular/router': ~9.0.4
+  '@angular/service-worker': ^9.0.4
+  '@semantic-release/exec': ^5.0.0
+  '@semantic-release/git': ^9.0.0
+  '@types/jasmine': ~3.5.7
   '@types/jasminewd2': ~2.0.8
-  '@types/node': ^12.12.12
-  codelyzer: ^5.2.0
-  firebase: ^7.5.0
-  firebase-tools: ^7.8.1
+  '@types/node': ^13.7.7
+  codelyzer: ^5.2.1
+  firebase: ^7.9.3
+  firebase-tools: ^7.14.0
   jasmine-core: ~3.5.0
   jasmine-spec-reporter: ~4.2.1
   karma: ~4.4.1
   karma-chrome-launcher: ^3.1.0
   karma-coverage-istanbul-reporter: ~2.1.1
-  karma-jasmine: ~2.0.1
-  karma-jasmine-html-reporter: ^1.4.2
+  karma-jasmine: ~3.1.1
+  karma-jasmine-html-reporter: ^1.5.2
   karma-junit-reporter: ^2.0.1
   lodash-es: ^4.17.15
-  ngx-build-plus: ^9.0.2
-  now: ^16.6.0
-  puppeteer: ^2.0.0
-  rxjs: ~7.0.0-alpha.0
-  semantic-release: ^15.13.31
-  ts-node: ~8.5.2
-  tslib: ^1.10.0
-  tslint: ^5.20.1
-  typescript: ^3.6.4
+  modclean: ^3.0.0-beta.1
+  ngx-build-plus: ^9.0.6
+  now: ^17.0.4
+  pnpm: ^4.10.0
+  rxjs: 6.5.4
+  semantic-release: ^17.0.4
+  ts-node: ~8.6.2
+  tslib: ^1.11.1
+  tslint: ~6.0.0
+  typescript: ~3.7.5
   zone.js: ^0.10.2
