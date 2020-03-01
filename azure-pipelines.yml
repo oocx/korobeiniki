@@ -38,7 +38,7 @@ steps:
   displayName: 'Debug'
 
 - script: |
-    npx pnpm install --frozen-lockfile=false
+    npx pnpm install --no-lockfile --ignore-scripts  --no-optional
   displayName: 'pnpm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
