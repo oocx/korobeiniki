@@ -72,10 +72,11 @@ steps:
   enabled: false
 
 - script: |
-    node_modules/.bin/now deploy --target production dist/korobeiniki --token $(NOW_TOKEN)
+    node_modules/.bin/now deploy --target production dist/korobeiniki --token $(NOW_TOKEN) -c -d
   displayName: 'publish to zeit'
-
+  timeoutInMinutes: 1
 
 - script: |
     node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN)
   displayName: 'publish to firebase'
+  timeoutInMinutes: 1
