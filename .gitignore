@@ -51,3 +51,5 @@ Thumbs.db
 set-env.cmd
 
 TESTS-*.xml
+
+.now
