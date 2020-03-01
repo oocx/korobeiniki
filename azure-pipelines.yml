@@ -38,7 +38,8 @@ steps:
   displayName: 'Debug'
 
 - script: |
-    node_modules/.bin/pnpm install --no-optional --ignore-scripts
+    npm install -g pnpm
+    pnpm install --no-optional --ignore-scripts
   displayName: 'npm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
