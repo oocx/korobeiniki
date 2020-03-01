@@ -27,7 +27,7 @@
     "@angular/platform-browser-dynamic": "~9.0.4",
     "@angular/pwa": "~0.900.4",
     "@angular/router": "~9.0.4",
-    "@angular/service-worker": "~9.0.4",
+    "@angular/service-worker": "^9.0.4",
     "firebase": "^7.9.3",
     "lodash-es": "^4.17.15",
     "ngx-build-plus": "^9.0.6",
