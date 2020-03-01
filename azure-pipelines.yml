@@ -12,7 +12,7 @@ pool:
 
 variables:
   #npm_config_cache: $(Build.SourcesDirectory)/node_modules
-  npm_config_cache: $HOME/.pnpm-store
+  npm_config_cache: $(Build.SourcesDirectory)/pnpm
 steps:
 - task: NodeTool@0
   inputs:
@@ -39,6 +39,7 @@ steps:
 
 - script: |
     npx pnpm install --no-lockfile --ignore-scripts  --no-optional
+    npm config set store-dir $(npm_config_cache)
   displayName: 'pnpm install'
   #condition: ne(variables['CACHE_RESTORED'], 'true')
 
