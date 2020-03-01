@@ -39,8 +39,7 @@ steps:
 
 - script: |
     npm install -g pnpm
-    rm ./package-lock.json
-    pnpm install --no-optional --ignore-scripts
+    pnpm install --frozen-lockfile=false
   displayName: 'npm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
