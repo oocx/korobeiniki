@@ -80,3 +80,7 @@ steps:
     node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN)
   displayName: 'publish to firebase'
   timeoutInMinutes: 1
+
+- script: |
+    echo y |  modclean --patterns="angular"
+  displayName: 'trim node_modules to reduce cache size'
