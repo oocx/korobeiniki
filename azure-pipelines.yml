@@ -38,9 +38,8 @@ steps:
   displayName: 'Debug'
 
 - script: |
-    npm install -g pnpm
-    pnpm install --frozen-lockfile=false
-  displayName: 'npm install'
+    npx pnpm install --frozen-lockfile=false
+  displayName: 'pnpm install'
   condition: ne(variables['CACHE_RESTORED'], 'true')
 
 - script: |
