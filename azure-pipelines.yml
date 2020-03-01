@@ -50,6 +50,7 @@ steps:
 - script: |
     npm run build
   displayName: 'build'
+  enabled: false
 
 - script: |
     npm run test:ci
@@ -76,14 +77,16 @@ steps:
     node_modules/.bin/now deploy --prod dist/korobeiniki --token $(NOW_TOKEN) -c -d
   displayName: 'publish to zeit'
   timeoutInMinutes: 1
+  enabled: false
 
 - script: |
     node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN)
   displayName: 'publish to firebase'
   timeoutInMinutes: 1
+  enabled: false
 
 - script: |
-    ls npm_config_cache -la
+    ls $(npm_config_cache) -la
     echo y | node_modules/.bin/modclean --patterns="angular"
-    ls npm_config_cache -la
+    ls (npm_config_cache) -la
   displayName: 'trim node_modules to reduce cache size'
