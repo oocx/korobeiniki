@@ -83,5 +83,7 @@ steps:
   timeoutInMinutes: 1
 
 - script: |
+    ls npm_config_cache -la
     echo y | node_modules/.bin/modclean --patterns="angular"
+    ls npm_config_cache -la
   displayName: 'trim node_modules to reduce cache size'
