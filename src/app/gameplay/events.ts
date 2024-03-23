@@ -6,17 +6,17 @@ export class Events {
 
   public linesCleared$ = new Subject<number>();
 
-  public tetrominoDropped$ = new Subject();
+  public tetrominoDropped$ = new Subject<void>();
 
-  public tetrominoHit$ = new Subject();
+  public tetrominoHit$ = new Subject<void>();
 
   public tetrominoSpawned$ = new Subject<number>();
 
   public levelUp$ = new Subject<number>();
 
-  public rotated$ = new Subject();
+  public rotated$ = new Subject<void>();
 
-  public moved$ = new Subject();
+  public moved$ = new Subject<void>();
 
   public score$ = new Subject<Score>();
 
@@ -24,12 +24,12 @@ export class Events {
 
   public gameStarted$ = new Subject<string>();
 
-  public gameOver$ = new Subject();
+  public gameOver$ = new Subject<void>();
 
-  public paused$ = new Subject();
+  public paused$ = new Subject<void>();
 
-  public continued$ = new Subject();
+  public continued$ = new Subject<void>();
 
-  public playerNameEntered$ = new Subject();
+  public playerNameEntered$ = new Subject<string>();
 
 }
