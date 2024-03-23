@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import * as firebaseApp from 'firebase/app';
-import 'firebase/firestore';
+import { FirebaseApp, initializeApp } from "firebase/app";
+import { Firestore, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_APIKEY,
@@ -19,12 +19,14 @@ const firebaseConfig = {
 })
 export class FirebaseService {
 
-  public get firestore(): firebase.firestore.Firestore {
-    return firebaseApp.firestore();
+
+  private app: FirebaseApp;
+  public get db() : Firestore {
+    return getFirestore(this.app);
   }
 
   constructor() {
-    firebaseApp.initializeApp(firebaseConfig);
+    this.app = initializeApp(firebaseConfig);
   }
 
 }

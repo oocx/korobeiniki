@@ -5,7 +5,7 @@
 # You can see what browsers were selected by your queries by running:
 #   npx browserslist
 
-edge >= 16
-chrome >= 80
+edge >= 120
+chrome >= 120
 not dead
 not IE 9-11 # For IE 9-11 support, remove 'not'.

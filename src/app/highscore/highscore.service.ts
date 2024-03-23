@@ -1,3 +1,5 @@
+
+import { collection, query, addDoc, getDocs, orderBy, limit } from "firebase/firestore";
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeUntil, first } from 'rxjs/operators';
@@ -30,7 +32,9 @@ export class HighscoreService {
   }
 
   public async getAllEntries(): Promise<Score[]> {
-    const results = await this.firebase.firestore.collection(process.env.FIREBASE_COLLECTION).orderBy('score', 'desc').limit(10).get();
+    const results = await getDocs(
+      query(collection(this.firebase.db, process.env.FIREBASE_COLLECTION), orderBy('score', 'desc'), limit(10))
+    );
     const scores = results.docs.map(d => d.data() as Score);
     return scores;
   }
@@ -42,7 +46,9 @@ export class HighscoreService {
     events.gameOver$.pipe(first()).subscribe(() => this.onGameOver(game.playerName));
     events.highscore$.next(this.highscore);
 
-    const lastHighScore = await this.firebase.firestore.collection(process.env.FIREBASE_COLLECTION).orderBy('score', 'desc').limit(1).get();
+    const lastHighScore = await getDocs(
+      query(collection(this.firebase.db, process.env.FIREBASE_COLLECTION), orderBy('score', 'desc'), limit(1))
+    );
 
     if (lastHighScore.docs.length === 1) {
       this.highscore = lastHighScore.docs[0].data() as unknown as Score;
@@ -57,7 +63,7 @@ export class HighscoreService {
     // round time, as we would not get the exact same result back from the service otherwise
     this.lastScore = { ...this.lastScore, playerName, gameTimeMs: Math.floor(this.lastScore.gameTimeMs) };
 
-    await this.firebase.firestore.collection(process.env.FIREBASE_COLLECTION).add(this.lastScore);
+    await addDoc(collection(this.firebase.db, process.env.FIREBASE_COLLECTION), this.lastScore);
     this.router.navigate(['highscore']);
   }
 

@@ -30,7 +30,6 @@
     "@angular/service-worker": "^16.2.12",
     "firebase": "^10.9.0",
     "lodash-es": "^4.17.15",
-    "ngx-build-plus": "^16.0.0",
     "rxjs": "6.5.4",
     "tslib": "^2.6.2",
     "zone.js": "^0.14.4"
