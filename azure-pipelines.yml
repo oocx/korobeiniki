@@ -42,7 +42,7 @@ steps:
   displayName: 'Debug'
 
 - script: |
-    npx pnpm install --no-lockfile --ignore-scripts  --no-optional
+    npx pnpm install
     # npm config set store-dir $(npm_config_cache)
   displayName: 'pnpm install'
   #condition: ne(variables['CACHE_RESTORED'], 'true')
