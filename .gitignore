@@ -53,3 +53,4 @@ set-env.cmd
 TESTS-*.xml
 
 .now
+.angular
