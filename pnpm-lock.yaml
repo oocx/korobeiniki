@@ -16,7 +16,7 @@ dependencies:
     version: 16.2.12(@angular/core@16.2.12)
   '@angular/core':
     specifier: ~16.2.12
-    version: 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+    version: 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
   '@angular/forms':
     specifier: ~16.2.12
     version: 16.2.12(@angular/common@16.2.12)(@angular/core@16.2.12)(@angular/platform-browser@16.2.12)(rxjs@6.5.4)
@@ -48,8 +48,8 @@ dependencies:
     specifier: ^2.6.2
     version: 2.6.2
   zone.js:
-    specifier: ^0.14.4
-    version: 0.14.4
+    specifier: ^0.13.0
+    version: 0.13.3
 
 devDependencies:
   '@angular-devkit/build-angular':
@@ -348,7 +348,7 @@ packages:
     peerDependencies:
       '@angular/core': 16.2.12
     dependencies:
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       tslib: 2.6.2
     dev: false
 
@@ -388,7 +388,7 @@ packages:
       '@angular/core': 16.2.12
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       rxjs: 6.5.4
       tslib: 2.6.2
 
@@ -423,10 +423,10 @@ packages:
       '@angular/core':
         optional: true
     dependencies:
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       tslib: 2.6.2
 
-  /@angular/core@16.2.12(rxjs@6.5.4)(zone.js@0.14.4):
+  /@angular/core@16.2.12(rxjs@6.5.4)(zone.js@0.13.3):
     resolution: {integrity: sha512-GLLlDeke/NjroaLYOks0uyzFVo6HyLl7VOm0K1QpLXnYvW63W9Ql/T3yguRZa7tRkOAeFZ3jw+1wnBD4O8MoUA==}
     engines: {node: ^16.14.0 || >=18.10.0}
     peerDependencies:
@@ -435,7 +435,7 @@ packages:
     dependencies:
       rxjs: 6.5.4
       tslib: 2.6.2
-      zone.js: 0.14.4
+      zone.js: 0.13.3
 
   /@angular/forms@16.2.12(@angular/common@16.2.12)(@angular/core@16.2.12)(@angular/platform-browser@16.2.12)(rxjs@6.5.4):
     resolution: {integrity: sha512-1Eao89hlBgLR3v8tU91vccn21BBKL06WWxl7zLpQmG6Hun+2jrThgOE4Pf3os4fkkbH4Apj0tWL2fNIWe/blbw==}
@@ -447,7 +447,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@6.5.4)
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       '@angular/platform-browser': 16.2.12(@angular/animations@16.2.12)(@angular/common@16.2.12)(@angular/core@16.2.12)
       rxjs: 6.5.4
       tslib: 2.6.2
@@ -469,7 +469,7 @@ packages:
     dependencies:
       '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@6.5.4)
       '@angular/compiler': 16.2.12(@angular/core@16.2.12)
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       '@angular/platform-browser': 16.2.12(@angular/animations@16.2.12)(@angular/common@16.2.12)(@angular/core@16.2.12)
       tslib: 2.6.2
     dev: false
@@ -487,7 +487,7 @@ packages:
     dependencies:
       '@angular/animations': 16.2.12(@angular/core@16.2.12)
       '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@6.5.4)
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       tslib: 2.6.2
     dev: false
 
@@ -511,7 +511,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@6.5.4)
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       '@angular/platform-browser': 16.2.12(@angular/animations@16.2.12)(@angular/common@16.2.12)(@angular/core@16.2.12)
       rxjs: 6.5.4
       tslib: 2.6.2
@@ -526,7 +526,7 @@ packages:
       '@angular/core': 16.2.12
     dependencies:
       '@angular/common': 16.2.12(@angular/core@16.2.12)(rxjs@6.5.4)
-      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.14.4)
+      '@angular/core': 16.2.12(rxjs@6.5.4)(zone.js@0.13.3)
       tslib: 2.6.2
 
   /@assemblyscript/loader@0.10.1:
@@ -12465,7 +12465,7 @@ packages:
       readable-stream: 3.4.0
     dev: true
 
-  /zone.js@0.14.4:
-    resolution: {integrity: sha512-NtTUvIlNELez7Q1DzKVIFZBzNb646boQMgpATo9z3Ftuu/gWvzxCW7jdjcUDoRGxRikrhVHB/zLXh1hxeJawvw==}
+  /zone.js@0.13.3:
+    resolution: {integrity: sha512-MKPbmZie6fASC/ps4dkmIhaT5eonHkEt6eAy80K42tAm0G2W+AahLJjbfi6X9NPdciOE9GRFTTM8u2IiF6O3ww==}
     dependencies:
       tslib: 2.6.2
