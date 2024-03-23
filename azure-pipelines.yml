@@ -12,7 +12,10 @@ pool:
 
 variables:
   #npm_config_cache: $(Build.SourcesDirectory)/node_modules
-  npm_config_cache: $(Build.SourcesDirectory)/pnpm
+  - name: npm_config_cache
+    value: $(Build.SourcesDirectory)/pnpm
+  - group: github
+
 steps:
 - task: NodeTool@0
   inputs:
