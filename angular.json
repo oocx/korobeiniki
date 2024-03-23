@@ -20,7 +20,7 @@
             "outputPath": "dist/korobeiniki",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [ "src/polyfills.ts" ],
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
@@ -83,7 +83,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [ "src/polyfills.ts" ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
@@ -115,7 +115,6 @@
       }
     }
   },
-  "defaultProject": "korobeiniki",
   "cli": {
     "analytics": false
   }
