@@ -54,7 +54,7 @@ steps:
 - script: |
     npm run build
   displayName: 'build'
-  enabled: false
+  enabled: true
 
 - script: |
     npm run test:ci
