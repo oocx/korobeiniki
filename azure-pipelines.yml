@@ -15,6 +15,7 @@ variables:
   - name: npm_config_cache
     value: $(Build.SourcesDirectory)/pnpm
   - group: github
+  - group: firebase
 
 steps:
 - task: NodeTool@0
@@ -80,7 +81,7 @@ steps:
     node_modules/.bin/firebase deploy --token $(FIREBASE_TOKEN)
   displayName: 'publish to firebase'
   timeoutInMinutes: 1
-  enabled: false
+  enabled: true
 
 - script: |
     ls $(npm_config_cache) -la -R
