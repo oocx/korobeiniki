@@ -8,7 +8,7 @@
     "ng": "ng --extra-webpack-config webpack.partial.js",
     "start": "ng serve --prod --disable-host-check --host 0.0.0.0 --port 4200 --extra-webpack-config webpack.partial.js",
     "start:dev": "ng serve --aot=false --disable-host-check --host 0.0.0.0 --port 4200 --extra-webpack-config webpack.partial.js",
-    "build": "ng build --prod --extra-webpack-config webpack.partial.js",
+    "build": "ng build",
     "deploy": "node_modules/.bin/now deploy --target production dist/korobeiniki",
     "publish": "npm run build && npm run deploy",
     "test": "ng test",
