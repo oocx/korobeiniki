@@ -54,3 +54,5 @@ TESTS-*.xml
 
 .now
 .angular
+
+firebase.env
