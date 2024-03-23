@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "korobeiniki"
+  "defaultProject": "korobeiniki",
+  "cli": {
+    "analytics": false
+  }
 }
