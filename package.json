@@ -57,7 +57,6 @@
     "karma-junit-reporter": "^2.0.1",
     "modclean": "^3.0.0-beta.1",
     "modclean-patterns-angular": "^1.0.0",
-    "now": "^17.0.4",
     "pnpm": "^8.15.5",
     "semantic-release": "^23.0.5",
     "ts-node": "~10.9.2",

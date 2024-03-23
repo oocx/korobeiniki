@@ -36,7 +36,6 @@ devDependencies:
   karma-jasmine-html-reporter: 1.4.2_6042ea507d2c2b0352305399e5fea334
   karma-junit-reporter: 2.0.1_karma@4.4.1
   modclean: 3.0.0-beta.1
-  now: 16.6.0
   pnpm: 4.10.0
   semantic-release: 15.13.31_semantic-release@15.13.31
   ts-node: 8.5.4_typescript@3.7.2
